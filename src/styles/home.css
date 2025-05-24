@@ -24,6 +24,10 @@ body h2 {
 body a {
   color: inherit;
 }
+body.no-scroll {
+  overflow: hidden;
+  height: 100%;
+}
 
 #root {
   box-sizing: border-box;
@@ -83,17 +87,14 @@ footer {
 }
 
 @media (max-width: 1000px) {
-  header .toggle-wrapper {
+  header .toggle-svg-wrapper {
     width: 100px;
     height: 100px;
-    position: fixed;
-    top: 0;
-    right: 0;
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
   }
-  header .toggle-wrapper .toggle {
+  header .toggle-svg-wrapper svg {
     width: 30px;
     height: auto;
   }

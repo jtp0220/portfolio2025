@@ -56,6 +56,14 @@ function Header(){
         }
     }, [width])
 
+    useEffect(() => {
+        if(isVisible){
+            document.body.classList.add('no-scroll');
+        } else {
+            document.body.classList.remove('no-scroll');
+        }
+    }, [isVisible])
+
     const toggleNavbar = () => {
         setIsVisible(!isVisible);        
     }
@@ -63,13 +71,13 @@ function Header(){
     return (
         <header id="header">
             <Logo />
-            <div>
+            <div className="toggle-svgs">
                 {
                     isMobile && (
                         !isVisible ? (
-                            <div className="toggle-wrapper sandwich"><svg className="toggle" onClick={toggleNavbar} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></div>
+                            <div className="toggle-svg-wrapper"><svg onClick={toggleNavbar} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></div>
                         ) : (
-                            <div className="toggle-wrapper close"><svg className="toggle" onClick={toggleNavbar} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></div>                    
+                            <div className="toggle-svg-wrapper"><svg onClick={toggleNavbar} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></div>                    
                         )
                     )
                 }
