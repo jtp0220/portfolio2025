@@ -3,7 +3,7 @@
 }
 #photos h2 {
   text-align: center;
-  font-family: "Fleur De Leah", cursive;
+  font-weight: 300;
 }
 #photos .gallery {
   display: grid;

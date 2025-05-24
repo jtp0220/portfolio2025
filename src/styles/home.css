@@ -27,7 +27,7 @@ body a {
 
 #root {
   box-sizing: border-box;
-  max-width: 1500px;
+  max-width: 1200px;
   min-height: 100vh;
   margin: auto;
   padding: 0 30px;
@@ -42,6 +42,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  height: 100px;
   /***** FOR DEV *****/
   /*******************/
 }
@@ -51,16 +52,23 @@ header .logo-wrapper {
   align-items: center;
   font-family: "Fleur De Leah", cursive;
 }
-header nav .tab-list {
+header .toggle-wrapper {
+  display: none;
+}
+header nav {
+  display: flex;
+  align-items: center;
+}
+header nav ul {
   display: flex;
   flex-direction: row;
 }
-header nav .tab-list .tab {
+header nav ul li {
   text-align: center;
   width: 100px;
   padding: 20px 5px;
 }
-header nav .tab-list .tab a:hover {
+header nav ul li a:hover {
   color: rgb(187, 16, 16);
 }
 
@@ -72,6 +80,47 @@ footer {
   padding: 50px 0px;
   font-size: 20px;
   text-align: center;
-  /***** FOR DEV *****/
-  /*******************/
+}
+
+@media (max-width: 1000px) {
+  header .toggle-wrapper {
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  header .toggle-wrapper .toggle {
+    width: 30px;
+    height: auto;
+  }
+  header .toggle-wrapper.sandwich {
+    display: none;
+  }
+  header nav {
+    flex-direction: column;
+    background-color: rgb(73, 73, 73);
+    -webkit-backdrop-filter: blur(100px);
+            backdrop-filter: blur(100px);
+    opacity: 90%;
+    position: fixed;
+    top: 100px;
+    right: 0;
+    height: 100vh;
+    width: 400px;
+  }
+  header nav ul {
+    flex-direction: column;
+  }
+  header nav ul li {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  header nav {
+    width: 100%;
+  }
 }/*# sourceMappingURL=home.css.map */

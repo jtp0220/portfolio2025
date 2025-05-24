@@ -31,7 +31,7 @@ body {
 
 #root {    
     box-sizing: border-box;
-    max-width: 1500px;
+    max-width: 1200px;
     min-height: 100vh;
     margin: auto;
     padding: 0 30px;
@@ -49,6 +49,8 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    height: 100px;
     
     /***** FOR DEV *****/
     // background-color: rgb(218, 66, 66);
@@ -61,12 +63,19 @@ header {
         font-family: "Fleur De Leah", cursive;
     }
 
+    .toggle-wrapper {
+        display:none;
+    }
+
     nav {
-        .tab-list {
+        display: flex;
+        align-items: center;
+
+        ul {
             display: flex;
             flex-direction: row;
-
-            .tab {
+        
+            li {
                 text-align: center;
                 width: 100px;
                 padding: 20px 5px;
@@ -89,11 +98,61 @@ footer {
 
     font-size: 20px;
     text-align: center;
-    /***** FOR DEV *****/
-    // background-color: rgb(66, 157, 218);
-    /*******************/
 }
 
-@media (max-width: 700px) {
-    
+@media (max-width: 1000px) {
+    header {
+        .toggle-wrapper {
+            width: 100px;
+            height: 100px;
+
+            position: fixed;
+            top: 0;
+            right: 0;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .toggle {
+                width: 30px;
+                height: auto;
+            }
+        }
+
+        .toggle-wrapper.sandwich {
+            display: none;
+        }
+
+        nav {
+            flex-direction: column;
+
+            background-color: rgb(73, 73, 73);
+            backdrop-filter: blur(100px);
+            opacity: 90%;
+            position: fixed;
+            top: 100px;
+            right: 0;
+
+            height: 100vh;
+            width: 400px;
+
+            ul {
+
+                flex-direction: column;
+
+                li {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        nav {
+            width: 100%;
+        }
+    }
 }
